@@ -1,0 +1,199 @@
+swagger: '2.0'
+info:
+  title: Notify API
+  description: Exposes publisher calls 
+  version: '1'
+schemes:
+  - http
+  - https
+produces:
+  - application/json
+paths:
+  "/unregister_topic":
+    post:
+      description: Register topic for pub
+      operationId: api.explorer.unregister_topic
+      parameters:
+        - in: body
+          name: topic
+          required: true
+          description: JSON you want to post
+          schema:
+            $ref: '#/definitions/Post'
+      responses:
+        '200':
+          description: Registered
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+        '500':
+          description: Error processing parameters
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+        - api
+      produces:
+        - application/json
+  "/register_topic":
+    post:
+      description: Register topic for pub
+      operationId: api.explorer.register_topic
+      parameters:
+        - in: body
+          name: topic
+          required: true
+          description: JSON you want to post
+          schema:
+            $ref: '#/definitions/Post'
+        - in: query
+          name: slot
+          default: 1
+          type: integer
+          required: true
+          description: time slot
+      responses:
+        '200':
+          description: Registered
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+        '500':
+          description: Error processing parameters
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+        - api
+      produces:
+        - application/json
+  "/modify_topic":
+    post:
+      description: Register topic for pub
+      operationId: api.explorer.modify_topic
+      parameters:
+        - in: body
+          name: topic
+          required: true
+          description: JSON you want to post
+          schema:
+            $ref: '#/definitions/Post'
+        - in: query
+          name: new_slot
+          default: 1
+          type: integer
+          required: true
+          description: time slot
+      responses:
+        '200':
+          description: Registered
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+        '500':
+          description: Error processing parameters
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+        - api
+      produces:
+        - application/json
+  "/pub":
+    post:
+      description: Register topic for pub
+      operationId: api.explorer.pub
+      parameters:
+        - in: body
+          name: topic
+          required: true
+          description: JSON you want to post
+          schema:
+            $ref: '#/definitions/Post'
+        - in: query
+          name: content
+          required: true
+          default: "hello world"
+          type: string
+          description: time slot
+      responses:
+        '200':
+          description: Registered
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+        '500':
+          description: Error processing parameters
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+        - api
+      produces:
+        - application/json
+  "/getRegTable":
+    post:
+      description: get table 
+      operationId: api.explorer.getRegTable
+      parameters:
+        - in: body
+          name: topic
+          required: true
+          description: JSON you want to post
+          schema:
+            $ref: '#/definitions/Post'
+      responses:
+        '200':
+          description: Registered
+          schema:
+            $ref: '#/definitions/SuccessResponse'
+        '500':
+          description: Error processing parameters
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+      tags:
+        - api
+      produces:
+        - application/json
+
+
+
+definitions:
+  Post:
+    required:
+      - service
+      - name
+      - ttype
+    properties:
+      service:
+        type: string
+        description: The posts unique identifier.
+      name:
+        type: string
+        description: The posts group
+      ttype:
+        type: string
+        description: The posts user
+      ext:
+        type: string
+        description: The posts extensions
+  Content:
+    required:
+      - data
+    properties:
+      topic:
+        type: string
+        description: msg from 
+      data:
+        type: string
+        description: msg content
+      ext:
+        type: string
+        description: The extensions
+  SuccessResponse:
+    required:
+      - service
+    properties:
+      service:
+        type: string
+  ErrorResponse:
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: integer
+      message:
+        type: string

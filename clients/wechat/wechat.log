@@ -1,0 +1,6 @@
+Tue, 04 Dec 2018 14:31:38 connectionpool.py[line:824] DEBUG Starting new HTTPS connection (1): api.weixin.qq.com
+Tue, 04 Dec 2018 14:31:38 connectionpool.py[line:396] DEBUG https://api.weixin.qq.com:443 "GET /cgi-bin/token?secret=da83f0a8b5e339055bc3ea13406005b6&grant_type=client_credential&appid=wx5114007c5499ae1b HTTP/1.1" 200 173
+Tue, 04 Dec 2018 14:31:38 CybexWechatHandler.py[line:80] INFO {"access_token": "16_cnpzMj9-kugsrczEeVLw9dn8kVAPDwwNHCFm63mYfpEdGb7IZCmBdEdBWfCU5-8u_Zw4N2eZfAeSIvpD202-zFdkZYVv2YMcKaVfeIlB6M5DW8dGhR1uZlRIpIUEIMcAIAMQU", "expires_in": 7200}
+Tue, 04 Dec 2018 14:31:38 connectionpool.py[line:824] DEBUG Starting new HTTPS connection (1): api.weixin.qq.com
+Tue, 04 Dec 2018 14:31:38 connectionpool.py[line:396] DEBUG https://api.weixin.qq.com:443 "POST /cgi-bin/message/custom/send?access_token=16_cnpzMj9-kugsrczEeVLw9dn8kVAPDwwNHCFm63mYfpEdGb7IZCmBdEdBWfCU5-8u_Zw4N2eZfAeSIvpD202-zFdkZYVv2YMcKaVfeIlB6M5DW8dGhR1uZlRIpIUEIMcAIAMQU HTTP/1.1" 200 66
+Tue, 04 Dec 2018 14:31:38 CybexWechatHandler.py[line:103] INFO {"errcode": 40003, "errmsg": "invalid openid hint: [BM7ZOa0098shc2]"}
